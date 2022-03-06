@@ -25,6 +25,11 @@ void setup() {
 
   digitalWrite(ledred, HIGH);
   digitalWrite(ledgreen, LOW);
+
+  digitalWrite(unlockdoor1, HIGH);
+  digitalWrite(unlockdoor2, HIGH);
+
+  
 }
 
 void loop() {
@@ -35,23 +40,23 @@ void loop() {
       switch(data)
       {
         case 'a': 
-        digitalWrite(unlockdoor1, HIGH);
-        data = "z";
+        digitalWrite(unlockdoor1, LOW);
+        data = 'z';
         break;
         
         case 'b': 
-        digitalWrite(unlockdoor1, LOW);
-        data = "z";
+        digitalWrite(unlockdoor1, HIGH);
+        data = 'z';
         break;
 
         case 'c': 
-        digitalWrite(unlockdoor2, HIGH);
-        data = "z";
+        digitalWrite(unlockdoor2, LOW);
+        data = 'z';
         break;
         
         case 'd': 
-        digitalWrite(unlockdoor2, LOW);
-        data = "z";
+        digitalWrite(unlockdoor2, HIGH);
+        data = 'z';
         break;
       }
       Serial.println(data);
@@ -60,21 +65,21 @@ void loop() {
   unlockdoor();
 
   if (tag == ""){
-    digitalWrite(unlockdoor1, HIGH);
+    digitalWrite(unlockdoor1, LOW);
     digitalWrite(ledred, LOW);
     digitalWrite(ledgreen, HIGH);
     delay(5000);
-    digitalWrite(unlockdoor1, LOW);
+    digitalWrite(unlockdoor1, HIGH);
     digitalWrite(ledred, HIGH);
     digitalWrite(ledgreen, LOW);
     }
 
   else if (tag == ""){
-    digitalWrite(unlockdoor2, HIGH);
+    digitalWrite(unlockdoor2, LOW);
     digitalWrite(ledred, LOW);
     digitalWrite(ledgreen, HIGH);
     delay(5000);
-    digitalWrite(unlockdoor2, LOW);
+    digitalWrite(unlockdoor2, HIGH);
     digitalWrite(ledred, HIGH);
     digitalWrite(ledgreen, LOW);
     }

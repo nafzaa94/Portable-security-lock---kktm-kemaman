@@ -18,6 +18,8 @@ SoftwareSerial mySerial(2, 3); // RX, TX
 void setup() {
   Serial.begin(9600);
   mySerial.begin(9600);
+  SPI.begin(); // Init SPI bus
+  rfid.PCD_Init(); // Init MFRC522
   pinMode(unlockdoor1, OUTPUT);
   pinMode(unlockdoor2, OUTPUT);
   pinMode(ledred, OUTPUT);
